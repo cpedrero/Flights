@@ -97,6 +97,7 @@ class FlightDslTest extends FlatSpec with ShouldMatchers with LocalSparkSqlConte
   }
 
   it should "get all the parsing errors" in new WithErrorsFlightsText {
+    val a = errorTextFlights.toErrors
     errorTextFlights.toErrors.count should be (5)
     errorTextFlights.toErrors.countByKey.size should be (2)
   }
